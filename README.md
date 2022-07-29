@@ -1,6 +1,15 @@
 # first_project
 
-A new Flutter project.
+Simple Flutter app
+
+## Instalation
+
+### Packages
+You need to install following packages:
+```
+flutter pub add english_words
+flutter pub add font_awesome_flutter
+```
 
 ## Getting Started
 
