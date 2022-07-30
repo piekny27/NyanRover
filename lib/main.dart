@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: AwesomeTabs(),
+      theme: ThemeData(
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
     );
   }
 // #enddocregion build
@@ -712,7 +718,7 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
         // the App.build method, and use it to set our appbar title.
         title: const Text('Your Opinions'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
 
@@ -776,10 +782,11 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
 
 
-
+        Row (mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
 
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
+              padding: const EdgeInsets.all(10.0),
               child:  ElevatedButton(
                 onPressed: () {
                   // Respond to button press
@@ -789,8 +796,18 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
               ),
             ),
 
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child:  ElevatedButton(
+                onPressed: () {
+                  // Respond to button press
+                },
 
-          ],
+                child: Text('ANULUJ'),
+              ),
+            ),
+          ]
+        )],
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
