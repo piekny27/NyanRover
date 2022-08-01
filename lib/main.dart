@@ -703,7 +703,15 @@ class FormAndOpinions extends StatefulWidget {
 }
 
 class _FormAndOpinionsState extends State<FormAndOpinions> {
+  bool toggle = false;
+  int _rating = 0;
 
+  void rate(int rating) {
+    //Other actions based on rating such as api calls.
+    setState(() {
+      _rating = rating;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -754,13 +762,76 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
             ),
             SizedBox(height: 10),
             Row (mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Icon(Icons.star_outline, size: 40,),
-                  const Icon(Icons.star_outline, size: 40,),
-                  const Icon(Icons.star_outline, size: 40,),
-                  const Icon(Icons.star_outline, size: 40,),
-                  const Icon(Icons.star_outline, size: 40,),
-                ]),
+              children: <Widget>[
+                IconButton(
+                    icon: _rating >= 1
+                        ? Icon(Icons.star, size: 40,)
+                        : Icon(
+                      Icons.star_outline,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        // Here we changing the icon.
+                        rate(1);
+                      });
+                    }),
+
+                IconButton(
+                    icon: _rating >= 2
+                        ? Icon(Icons.star, size: 40,)
+                        : Icon(
+                      Icons.star_outline,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        // Here we changing the icon.
+                        rate(2);
+                      });
+                    }),
+
+
+                IconButton(
+                    icon: _rating >= 3
+                        ? Icon(Icons.star, size: 40,)
+                        : Icon(
+                      Icons.star_outline,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        // Here we changing the icon.
+                        rate(3);
+                      });
+                    }),
+                IconButton(
+                    icon: _rating >= 4
+                        ? Icon(Icons.star, size: 40,)
+                        : Icon(
+                      Icons.star_outline,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        // Here we changing the icon.
+                        rate(4);
+                      });
+                    }),
+                IconButton(
+                    icon: _rating >= 5
+                        ? Icon(Icons.star, size: 40,)
+                        : Icon(
+                      Icons.star_outline,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        // Here we changing the icon.
+                        rate(5);
+                      });
+                    }),
+              ],),
 
             SizedBox(height: 10),
             SizedBox(width: 400,
@@ -806,6 +877,9 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                 child: Text('ANULUJ'),
               ),
             ),
+
+
+
           ]
         )],
         ),
