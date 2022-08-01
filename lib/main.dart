@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -712,6 +713,17 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
       _rating = rating;
     });
   }
+
+
+  final _text = TextEditingController();
+  bool _validate = false;
+
+  @override
+  void dispose() {
+    _text.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -750,23 +762,23 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
           mainAxisAlignment: MainAxisAlignment.start,
 
           children: <Widget>[
-            SizedBox(height: 10),
-            Text(
+           const SizedBox(height: 10),
+           const Text(
               'Oceń obiekt wiedzy',
               style: TextStyle(color: Colors.blue, fontSize: 22)
               ,
             ),
-            Text(
+           const Text(
               'Tutaj możesz ocenić obiekt wiedzy',
               style: TextStyle(color: Colors.grey, fontSize: 15),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row (mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
                     icon: _rating >= 1
-                        ? Icon(Icons.star, size: 40,)
-                        : Icon(
+                        ? const Icon(Icons.star, size: 40,)
+                        : const Icon(
                       Icons.star_outline,
                       size: 40,
                     ),
@@ -779,8 +791,8 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
                 IconButton(
                     icon: _rating >= 2
-                        ? Icon(Icons.star, size: 40,)
-                        : Icon(
+                        ? const Icon(Icons.star, size: 40,)
+                        : const Icon(
                       Icons.star_outline,
                       size: 40,
                     ),
@@ -794,8 +806,8 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
                 IconButton(
                     icon: _rating >= 3
-                        ? Icon(Icons.star, size: 40,)
-                        : Icon(
+                        ? const Icon(Icons.star, size: 40,)
+                        : const Icon(
                       Icons.star_outline,
                       size: 40,
                     ),
@@ -807,8 +819,8 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 4
-                        ? Icon(Icons.star, size: 40,)
-                        : Icon(
+                        ? const Icon(Icons.star, size: 40,)
+                        : const Icon(
                       Icons.star_outline,
                       size: 40,
                     ),
@@ -820,8 +832,8 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 5
-                        ? Icon(Icons.star, size: 40,)
-                        : Icon(
+                        ? const Icon(Icons.star, size: 40,)
+                        : const Icon(
                       Icons.star_outline,
                       size: 40,
                     ),
@@ -833,17 +845,24 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
               ],),
 
-            SizedBox(height: 10),
+           const SizedBox(height: 10),
             SizedBox(width: 400,
               height: 200,
 
 
               child: TextField(
+                controller: _text,
                 decoration: InputDecoration(
-                  icon: new Icon(Icons.person),
+                  icon: ImageIcon(
+                    AssetImage("icons/default_avatar.png"),
+                    color: Colors.blue,
+                  ),
 
                   labelText: 'Komentarz...',
+                  errorText: _validate ? 'Pole nie może być puste' : null,
+
                   border: OutlineInputBorder(),
+
                 ),
                 textAlign: TextAlign.start,
                 keyboardType: TextInputType.multiline,
@@ -858,15 +877,17 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child:  ElevatedButton(
-                onPressed: () {
-                  // Respond to button press
-                },
 
-                child: Text('POTWIERDŹ'),
-              ),
             ),
-
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _text.text.isEmpty ? _validate = true : _validate = false;
+                  });
+                },
+                child: const Text('POTWIERDŹ'),
+               
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child:  ElevatedButton(
@@ -874,7 +895,7 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                   // Respond to button press
                 },
 
-                child: Text('ANULUJ'),
+                child: const Text('ANULUJ'),
               ),
             ),
 
