@@ -1,0 +1,491 @@
+{
+	"items": {
+		"columns": {
+			"Message.Title": {
+				"name": "Message.Title",
+				"type": "text",
+				"parsers": [
+					"empty",
+					"link"
+				],
+				"sortable": true,
+				"show": true,
+				"index": 0
+			},
+			"User.Login": {
+				"name": "User.Login",
+				"type": "text",
+				"parsers": [
+					"empty"
+				],
+				"sortable": true,
+				"show": true,
+				"index": 1
+			},
+			"User.Name": {
+				"name": "User.Name",
+				"type": "text",
+				"parsers": [
+					"empty"
+				],
+				"sortable": true,
+				"show": true,
+				"index": 2
+			},
+			"User.Surname": {
+				"name": "User.Surname",
+				"type": "text",
+				"parsers": [
+					"empty"
+				],
+				"sortable": true,
+				"show": true,
+				"index": 3
+			},
+			"readtimestamp": {
+				"name": "readtimestamp",
+				"type": "date_time",
+				"parsers": [
+					"empty",
+					"date_time"
+				],
+				"sortable": true,
+				"show": true,
+				"index": 4
+			},
+			"sendtimestamp": {
+				"name": "sendtimestamp",
+				"type": "date_time",
+				"parsers": [
+					"empty",
+					"date_time"
+				],
+				"sortable": false,
+				"show": true,
+				"index": 5
+			},
+			"IsRead": {
+				"name": "IsRead",
+				"type": "boolean",
+				"parsers": [
+					"empty",
+					"map"
+				],
+				"sortable": false,
+				"show": false,
+				"index": 6
+			}
+		},
+		"data": [
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;BHP AB.mp4&quot;.",
+					"href": "\/message\/show\/210"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-05-06 13:01",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;Oferta ELF19 Sponsor_Wystawca.pdf&quot;.",
+					"href": "\/message\/show\/202"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-04-29 11:38",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "fdsfd",
+					"href": "\/message\/show\/197"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-04-28 12:48",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;Link 3&quot;.",
+					"href": "\/message\/show\/167"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-04-04 10:06",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "You have recently completed Link 3.",
+					"href": "\/message\/show\/166"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-04-04 08:50",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Zosta\u0142e\u015b przypisany do grupy u\u017cytkownik\u00f3w",
+					"href": "\/message\/show\/127"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2022-02-28 13:53",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Zosta\u0142e\u015b przypisany do grupy u\u017cytkownik\u00f3w",
+					"href": "\/message\/show\/92"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-12-13 15:39",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Zosta\u0142e\u015b przypisany do grupy u\u017cytkownik\u00f3w",
+					"href": "\/message\/show\/88"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-12-13 15:18",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;Prace niebezpieczne Kemipol&quot;.",
+					"href": "\/message\/show\/78"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-12-07 15:08",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;test_pyta\u0144 i odpowiedzi&quot;.",
+					"href": "\/message\/show\/71"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-12-02 12:38",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Zosta\u0142e\u015b przypisany do grupy u\u017cytkownik\u00f3w",
+					"href": "\/message\/show\/66"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-12-02 10:37",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Witaj",
+					"href": "\/message\/show\/22"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-09-21 13:45",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;test_pyta\u0144 i odpowiedzi&quot;.",
+					"href": "\/message\/show\/13"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-07-30 14:48",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;pies.jpg&quot;.",
+					"href": "\/message\/show\/5"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-07-20 13:50",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			},
+			{
+				"Message.Title": {
+					"text": "Ostatnio uko\u0144czy\u0142e\u015b &quot;TestTestera&quot;.",
+					"href": "\/message\/show\/3"
+				},
+				"User.Login": "admin",
+				"User.Name": "Administrator",
+				"User.Surname": "Globalny",
+				"readtimestamp": {
+					"value": "",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"sendtimestamp": {
+					"value": "2021-07-20 13:48",
+					"show_difference": true,
+					"show_origin_date": true,
+					"show_only_date": false,
+					"empty_text": "brak"
+				},
+				"IsRead": {
+					"text": "unread",
+					"value": 0
+				}
+			}
+		],
+		"info": {
+			"count_all": 28,
+			"count_filtered": 15
+		}
+	}
+}
