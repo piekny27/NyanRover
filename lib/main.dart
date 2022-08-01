@@ -30,7 +30,7 @@ class _RandomWordsState extends State<RandomWords> {
       MaterialPageRoute<void>(
         builder: (context) {
           final tiles = _saved.map(
-                (pair) {
+            (pair) {
               return ListTile(
                 title: Text(
                   pair.asPascalCase,
@@ -41,9 +41,9 @@ class _RandomWordsState extends State<RandomWords> {
           );
           final divided = tiles.isNotEmpty
               ? ListTile.divideTiles(
-            context: context,
-            tiles: tiles,
-          ).toList()
+                  context: context,
+                  tiles: tiles,
+                ).toList()
               : <Widget>[];
 
           return Scaffold(
@@ -105,6 +105,7 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 }
+
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
 
@@ -137,7 +138,6 @@ class _CoolCounterState extends State<CoolCounter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Center(
         //child: _widgetOptions.elementAt(_selectedIndex),
         // Center is a layout widget. It takes a single child and positions it
@@ -186,6 +186,7 @@ class _CoolCounterState extends State<CoolCounter> {
     );
   }
 }
+
 class CoolCounter extends StatefulWidget {
   const CoolCounter({super.key});
 
@@ -253,7 +254,8 @@ class _AwesomeTabs extends State<AwesomeTabs> {
     );
   }
 }
-class AwesomeTabs extends StatefulWidget{
+
+class AwesomeTabs extends StatefulWidget {
   const AwesomeTabs({Key? key}) : super(key: key);
 
   @override
@@ -281,7 +283,7 @@ class Note {
   });
 }
 
-const allNotes =[
+const allNotes = [
   Note(
     login: '',
     leading: 'bell',
@@ -316,42 +318,37 @@ const allNotes =[
   ),
 ];
 
-class MySearchDelegate extends SearchDelegate{
+class MySearchDelegate extends SearchDelegate {
   List<Note> notes = allNotes;
 
-  final enabledStyle = const TextStyle(
-      color: Colors.black
-  );
-  final disabledStyle = const TextStyle(
-      color: Colors.grey
-  );
+  final enabledStyle = const TextStyle(color: Colors.black);
+  final disabledStyle = const TextStyle(color: Colors.grey);
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
-    onPressed: () => close(context, null),
-    icon: const FaIcon(FontAwesomeIcons.arrowLeft),
-  );
+        onPressed: () => close(context, null),
+        icon: const FaIcon(FontAwesomeIcons.arrowLeft),
+      );
 
   @override
   List<Widget>? buildActions(BuildContext context) => [
-    IconButton(
-        onPressed: () {
-          if(query.isEmpty){
-            close(context,null);
-          }else {
-            query = '';
-          }
-        },
-        icon: const FaIcon(FontAwesomeIcons.xmark))
-  ];
+        IconButton(
+            onPressed: () {
+              if (query.isEmpty) {
+                close(context, null);
+              } else {
+                query = '';
+              }
+            },
+            icon: const FaIcon(FontAwesomeIcons.xmark))
+      ];
 
   @override
   Widget buildResults(BuildContext context) => Container();
 
   @override
   Widget buildSuggestions(BuildContext context) {
-
-    final suggestions = notes.where((note){
+    final suggestions = notes.where((note) {
       final noteTitle = note.title.toLowerCase();
       final input = query.toLowerCase();
       return noteTitle.contains(input);
@@ -365,12 +362,15 @@ class MySearchDelegate extends SearchDelegate{
       itemBuilder: (context, i) {
         final note = suggestions[i];
         var style = enabledStyle;
-        if(note.status.contains('Przeczytano')){
+        if (note.status.contains('Przeczytano')) {
           style = disabledStyle;
         }
         return ListTile(
           leading: const FaIcon(FontAwesomeIcons.bell),
-          title: Text(note.title,style: style,),
+          title: Text(
+            note.title,
+            style: style,
+          ),
           subtitle: Text(note.subtitle),
           //trailing: const Icon(Icons.circle_outlined),
           onTap: () => Navigator.push(
@@ -385,9 +385,13 @@ class MySearchDelegate extends SearchDelegate{
     );
   }
 }
+
 class NotePage extends StatelessWidget {
   final Note note;
-  const NotePage({ Key? key, required this.note,}) : super(key: key);
+  const NotePage({
+    Key? key,
+    required this.note,
+  }) : super(key: key);
   final tStyle = const TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 20,
@@ -398,61 +402,81 @@ class NotePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text('Notification'),
-    ),
-    body: Container(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text.rich(
-            TextSpan(
-              children: <TextSpan>[
-                TextSpan(text: 'Title: ', style: tStyle,),
-                TextSpan(text: note.title, style: tStyle2,),
-              ],
-            ),
+        appBar: AppBar(
+          title: const Text('Notification'),
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Title: ',
+                      style: tStyle,
+                    ),
+                    TextSpan(
+                      text: note.title,
+                      style: tStyle2,
+                    ),
+                  ],
+                ),
+              ),
+              Text.rich(
+                TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Login: ',
+                      style: tStyle,
+                    ),
+                    TextSpan(
+                      text: note.login,
+                      style: tStyle2,
+                    ),
+                  ],
+                ),
+              ),
+              Text.rich(
+                TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Status: ',
+                      style: tStyle,
+                    ),
+                    TextSpan(
+                      text: note.status,
+                      style: tStyle2,
+                    ),
+                  ],
+                ),
+              ),
+              Text.rich(
+                TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Date: ',
+                      style: tStyle,
+                    ),
+                    TextSpan(
+                      text: note.subtitle,
+                      style: tStyle2,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Text.rich(
-            TextSpan(
-              children: <TextSpan>[
-                TextSpan(text: 'Login: ', style: tStyle,),
-                TextSpan(text: note.login, style: tStyle2,),
-              ],
-            ),
-          ),
-          Text.rich(
-            TextSpan(
-              children: <TextSpan>[
-                TextSpan(text: 'Status: ', style: tStyle,),
-                TextSpan(text: note.status, style: tStyle2,),
-              ],
-            ),
-          ),
-          Text.rich(
-            TextSpan(
-              children: <TextSpan>[
-                TextSpan(text: 'Date: ', style: tStyle,),
-                TextSpan(text: note.subtitle, style: tStyle2,),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
 
 class _NotificationsState extends State<Notifications> {
   List<Note> notes = allNotes;
 
-  final enabledStyle = const TextStyle(
-      color: Colors.black
-  );
-  final disabledStyle = const TextStyle(
-      color: Colors.grey
-  );
+  final enabledStyle = const TextStyle(color: Colors.black);
+  final disabledStyle = const TextStyle(color: Colors.grey);
 
   @override
   Widget build(BuildContext context) {
@@ -493,12 +517,15 @@ class _NotificationsState extends State<Notifications> {
           itemBuilder: (context, i) {
             final note = notes[i];
             var style = enabledStyle;
-            if(note.status.contains('Przeczytano')){
+            if (note.status.contains('Przeczytano')) {
               style = disabledStyle;
             }
             return ListTile(
               leading: const FaIcon(FontAwesomeIcons.bell),
-              title: Text(note.title,style: style,),
+              title: Text(
+                note.title,
+                style: style,
+              ),
               subtitle: Text(note.subtitle),
               //trailing: const Icon(Icons.circle_outlined),
               onTap: () => Navigator.push(
@@ -515,44 +542,34 @@ class _NotificationsState extends State<Notifications> {
     );
   }
 }
+
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
 
   @override
   State<Notifications> createState() => _NotificationsState();
 }
+
 //Trophies
 class Trophies extends StatefulWidget {
-  const Trophies({Key? key }) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+  const Trophies({Key? key}) : super(key: key);
 
   @override
   State<Trophies> createState() => _TrophiesState();
-
 }
-
 
 class _TrophiesState extends State<Trophies> {
   int _counterpoints = 0;
   int _countertrophy = 0;
   int _countertrophiesleft = 100;
-  String message1='100';
+  String message1 = '100';
 
   void _incrementCounterPoints() {
     setState(() {
-
       _counterpoints++;
     });
   }
+
   void _incrementCounterTrophy() {
     if (_countertrophiesleft > 0) {
       setState(() {
@@ -564,32 +581,22 @@ class _TrophiesState extends State<Trophies> {
     if (_countertrophiesleft == 0) {
       setState(() {
         message1 = 'There are no trophies left!';
-      }
-      );
+      });
     }
   }
+
   void _addnewtrophiestoearn() {
     setState(() {
-
       _countertrophiesleft++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(25, 25, 25, 1.0),
-
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
+          backgroundColor: Colors.blue,
           title: const Text('Trophies'),
           titleSpacing: 00.0,
           centerTitle: true,
@@ -605,67 +612,117 @@ class _TrophiesState extends State<Trophies> {
           leading: SizedBox(
             width: double.infinity,
             child: IconButton(
-              icon: const FaIcon(FontAwesomeIcons.arrowLeft, color: Color.fromRGBO(218, 165, 32, 1.0)),
-              onPressed: (){/*ToDo*/},
+              icon:
+                  const FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.white),
+              onPressed: () {/*ToDo*/},
             ),
           ),
-
         ),
-        body:Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-
-              children:  <Widget> [
-                const Padding(padding: EdgeInsets.all(20)),
-                const Text('All Trophies', style: TextStyle(
-                    color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
-                const SizedBox(height: 20,),
-                Expanded(
-                    child: GridView(
-                      shrinkWrap: true,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+        body: Column(
+          children: [
+            Container(
+                padding: EdgeInsets.all(20),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(children: [
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'All Trophies',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
                       ),
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            IconButton(onPressed: _incrementCounterTrophy, tooltip: 'Earn a trophy', icon: const Icon(FontAwesomeIcons.trophy, color: Color.fromRGBO(218, 165, 32, 1.0))),
-                            const SizedBox(height: 10),
-                            Text('Trophies earned: $_countertrophy', style: const TextStyle(color: Colors.white)),
-                          ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Summary of all trophies:',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children:  [
-                            IconButton(onPressed: _addnewtrophiestoearn, tooltip: 'Add trophies to earn', icon: const Icon(FontAwesomeIcons.trophy, color: Color.fromRGBO(218, 165, 32, 1.0))),
-                            const SizedBox(height: 10),
-                            Text('Trophies to earn: $message1', style: const TextStyle(color: Colors.white)),
-                          ],
-                        ),
-
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            //Icon(FontAwesomeIcons.database,color: Color.fromRGBO(218, 165, 32, 1.0)),
-                            IconButton(onPressed: (){
-                              _incrementCounterPoints();
-                            }, tooltip: 'Earn a point', icon: const Icon(FontAwesomeIcons.database, color: Color.fromRGBO(218, 165, 32, 1.0))),
-                            const SizedBox(height: 10),
-                            Text('Points earned: $_counterpoints', style: const TextStyle(color: Colors.white)),
-
-                          ],
-                        ),
-                      ],
-                    )
-                )
-              ],
-            )
-        )
-    );
+                      ),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                children: [
+                                  IconButton(
+                                      onPressed: _incrementCounterTrophy,
+                                      tooltip: 'Earn a trophy',
+                                      icon: const Icon(FontAwesomeIcons.trophy,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0))),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text('$_countertrophy',
+                                          style: const TextStyle(
+                                              color: Colors.blue)),
+                                      const SizedBox(height: 10),
+                                      const Text('Trophies earned ',
+                                          style: TextStyle(color: Colors.blue)),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  IconButton(
+                                      onPressed: _addnewtrophiestoearn,
+                                      tooltip: 'Add trophies to earn',
+                                      icon: const Icon(FontAwesomeIcons.trophy,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0))),
+                                  Column(children: [
+                                    Text('$message1',
+                                        style: const TextStyle(
+                                            color: Colors.blue)),
+                                    const SizedBox(height: 10),
+                                    const Text('Trophies to earn ',
+                                        style: TextStyle(color: Colors.blue)),
+                                  ]),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        _incrementCounterPoints();
+                                      },
+                                      tooltip: 'Earn a point',
+                                      icon: const Icon(
+                                          FontAwesomeIcons.database,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0))),
+                                  Column(children: [
+                                    Text('$_counterpoints',
+                                        style: const TextStyle(
+                                            color: Colors.blue)),
+                                    const SizedBox(height: 10),
+                                    const Text('Points earned ',
+                                        style: TextStyle(color: Colors.blue)),
+                                  ]),
+                                ],
+                              ),
+                            ]))
+                  ]),
+                )),
+          ],
+        ));
   }
 }
