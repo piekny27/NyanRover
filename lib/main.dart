@@ -704,7 +704,6 @@ class FormAndOpinions extends StatefulWidget {
 }
 
 class _FormAndOpinionsState extends State<FormAndOpinions> {
-  bool toggle = false;
   int _rating = 0;
 
   void rate(int rating) {
@@ -765,22 +764,24 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
            const SizedBox(height: 10),
            const Text(
               'Oceń obiekt wiedzy',
-              style: TextStyle(color: Colors.blue, fontSize: 22)
+              style: TextStyle(color: Colors.blueGrey, fontSize: 22)
               ,
             ),
            const Text(
               'Tutaj możesz ocenić obiekt wiedzy',
               style: TextStyle(color: Colors.grey, fontSize: 15),
             ),
-            const SizedBox(height: 10),
+
             Row (mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
                 IconButton(
                     icon: _rating >= 1
-                        ? const Icon(Icons.star, size: 40,)
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
                         : const Icon(
-                      Icons.star_outline,
-                      size: 40,
+                      FontAwesomeIcons.star,
+                      size: 35,
+
                     ),
                     onPressed: () {
                       setState(() {
@@ -791,10 +792,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
                 IconButton(
                     icon: _rating >= 2
-                        ? const Icon(Icons.star, size: 40,)
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
                         : const Icon(
-                      Icons.star_outline,
-                      size: 40,
+                      FontAwesomeIcons.star,
+                      size: 35,
                     ),
                     onPressed: () {
                       setState(() {
@@ -802,14 +803,12 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                         rate(2);
                       });
                     }),
-
-
                 IconButton(
                     icon: _rating >= 3
-                        ? const Icon(Icons.star, size: 40,)
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
                         : const Icon(
-                      Icons.star_outline,
-                      size: 40,
+                      FontAwesomeIcons.star,
+                      size: 35,
                     ),
                     onPressed: () {
                       setState(() {
@@ -819,10 +818,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 4
-                        ? const Icon(Icons.star, size: 40,)
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
                         : const Icon(
-                      Icons.star_outline,
-                      size: 40,
+                      FontAwesomeIcons.star,
+                      size: 35,
                     ),
                     onPressed: () {
                       setState(() {
@@ -832,10 +831,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 5
-                        ? const Icon(Icons.star, size: 40,)
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
                         : const Icon(
-                      Icons.star_outline,
-                      size: 40,
+                      FontAwesomeIcons.star,
+                      size: 35,
                     ),
                     onPressed: () {
                       setState(() {
@@ -846,22 +845,20 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
               ],),
 
            const SizedBox(height: 10),
-            SizedBox(width: 400,
-              height: 200,
-
-
+            SizedBox(width: 370,
+              height: 150,
               child: TextField(
                 controller: _text,
                 decoration: InputDecoration(
-                  icon: ImageIcon(
-                    AssetImage("icons/default_avatar.png"),
+                  icon: const ImageIcon(
+                   AssetImage("assets/icons/default_avatar.png"),
                     color: Colors.blue,
                   ),
 
                   labelText: 'Komentarz...',
                   errorText: _validate ? 'Pole nie może być puste' : null,
 
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
 
                 ),
                 textAlign: TextAlign.start,
@@ -874,11 +871,6 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
         Row (mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-
-            ),
             ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -886,7 +878,6 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                   });
                 },
                 child: const Text('POTWIERDŹ'),
-               
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -898,9 +889,6 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                 child: const Text('ANULUJ'),
               ),
             ),
-
-
-
           ]
         )],
         ),
