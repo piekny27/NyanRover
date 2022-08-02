@@ -732,6 +732,7 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -761,26 +762,45 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
           mainAxisAlignment: MainAxisAlignment.start,
 
           children: <Widget>[
-           const SizedBox(height: 10),
-           const Text(
-              'Oceń obiekt wiedzy',
-              style: TextStyle(color: Colors.blueGrey, fontSize: 22)
-              ,
-            ),
-           const Text(
-              'Tutaj możesz ocenić obiekt wiedzy',
-              style: TextStyle(color: Colors.grey, fontSize: 15),
+            Container (
+              child: Align ( alignment: Alignment.centerLeft,
+                child:
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: const Text(
+                      'Oceń obiekt wiedzy',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 22),
+                      textAlign: TextAlign.left,
+                    )
+                ),
+              ),
             ),
 
-            Row (mainAxisAlignment: MainAxisAlignment.center,
+
+            Align ( alignment: Alignment.centerLeft,
+              child:
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                  child: const Text(
+                    'Tutaj możesz ocenić obiekt wiedzy',
+                    style: TextStyle(color: Colors.grey, fontSize: 15),
+                    textAlign: TextAlign.left,
+                  )
+              ),
+            ),
+
+
+
+            Row (mainAxisAlignment: MainAxisAlignment.start,
+
               children: <Widget>[
 
                 IconButton(
                     icon: _rating >= 1
-                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 30, )
                         : const Icon(
                       FontAwesomeIcons.star,
-                      size: 35,
+                      size: 30,
 
                     ),
                     onPressed: () {
@@ -792,10 +812,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
 
                 IconButton(
                     icon: _rating >= 2
-                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 30, )
                         : const Icon(
                       FontAwesomeIcons.star,
-                      size: 35,
+                      size: 30,
                     ),
                     onPressed: () {
                       setState(() {
@@ -805,10 +825,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 3
-                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 30, )
                         : const Icon(
                       FontAwesomeIcons.star,
-                      size: 35,
+                      size: 30,
                     ),
                     onPressed: () {
                       setState(() {
@@ -818,10 +838,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 4
-                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 30, )
                         : const Icon(
                       FontAwesomeIcons.star,
-                      size: 35,
+                      size: 30,
                     ),
                     onPressed: () {
                       setState(() {
@@ -831,10 +851,10 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                     }),
                 IconButton(
                     icon: _rating >= 5
-                        ? const Icon(FontAwesomeIcons.solidStar, size: 35, )
+                        ? const Icon(FontAwesomeIcons.solidStar, size: 30, )
                         : const Icon(
                       FontAwesomeIcons.star,
-                      size: 35,
+                      size: 30,
                     ),
                     onPressed: () {
                       setState(() {
@@ -845,16 +865,19 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
               ],),
 
            const SizedBox(height: 10),
-            SizedBox(width: 370,
-              height: 150,
+        Row (mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[Image.asset('assets/images/default_avatar.png'),
+
+
+            SizedBox(width: 320,
+              height: 100,
+
               child: TextField(
+
                 controller: _text,
                 decoration: InputDecoration(
-                  icon: const ImageIcon(
-                   AssetImage("assets/icons/default_avatar.png"),
-                    color: Colors.blue,
-                  ),
-
+                  filled: true,
+                  fillColor: Colors.white,
                   labelText: 'Komentarz...',
                   errorText: _validate ? 'Pole nie może być puste' : null,
 
@@ -865,19 +888,24 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                 keyboardType: TextInputType.multiline,
                 maxLines: 5,
               ),
-            ),
+            ), ] ),
 
 
 
-        Row (mainAxisAlignment: MainAxisAlignment.center,
+
+        Row (mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            ElevatedButton(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child:  ElevatedButton(
                 onPressed: () {
                   setState(() {
                     _text.text.isEmpty ? _validate = true : _validate = false;
                   });
                 },
+
                 child: const Text('POTWIERDŹ'),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
