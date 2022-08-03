@@ -2,6 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
 
 
 void main() {
@@ -697,8 +698,6 @@ class FormAndOpinions extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-
-
   @override
   State<FormAndOpinions> createState() => _FormAndOpinionsState();
 }
@@ -712,8 +711,6 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
       _rating = rating;
     });
   }
-
-
   final _text = TextEditingController();
   bool _validate = false;
 
@@ -723,6 +720,15 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
     super.dispose();
   }
 
+  void clearText() {
+    _text.clear();
+  }
+
+void checkStar ()
+{
+
+}
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -731,8 +737,9 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -741,8 +748,6 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
       body: SingleChildScrollView(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-
-
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -762,34 +767,29 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
           mainAxisAlignment: MainAxisAlignment.start,
 
           children: <Widget>[
-            Container (
-              child: Align ( alignment: Alignment.centerLeft,
-                child:
-                Padding(
+
+                const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: const Text(
+                    child: Text(
                       'Oceń obiekt wiedzy',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 22),
                       textAlign: TextAlign.left,
                     )
                 ),
-              ),
-            ),
 
 
-            Align ( alignment: Alignment.centerLeft,
+
+            const Align ( alignment: Alignment.centerLeft,
               child:
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                  child: const Text(
+                  child: Text(
                     'Tutaj możesz ocenić obiekt wiedzy',
                     style: TextStyle(color: Colors.grey, fontSize: 15),
                     textAlign: TextAlign.left,
                   )
               ),
             ),
-
-
 
             Row (mainAxisAlignment: MainAxisAlignment.start,
 
@@ -862,36 +862,34 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
                         rate(5);
                       });
                     }),
-              ],),
+              ],
+            ),
 
            const SizedBox(height: 10),
         Row (mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[Image.asset('assets/images/default_avatar.png'),
-
-
             SizedBox(width: 320,
               height: 100,
-
-              child: TextField(
-
+             child :TextField(
                 controller: _text,
+                expands: true,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
                   labelText: 'Komentarz...',
-                  errorText: _validate ? 'Pole nie może być puste' : null,
-
+                  errorText: _validate ? 'Pole nie może być puste lub nie zaznaczono gwiazdek' : null,
                   border: const OutlineInputBorder(),
 
                 ),
                 textAlign: TextAlign.start,
                 keyboardType: TextInputType.multiline,
-                maxLines: 5,
+                minLines: null,
+                maxLines: null,
               ),
-            ), ] ),
 
-
-
+            ),
+          ]
+        ),
 
         Row (mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -900,10 +898,11 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
               child:  ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _text.text.isEmpty ? _validate = true : _validate = false;
-                  });
+                    _text.text.isEmpty ? _validate = true : _validate = false ||
+                   _rating==0 ? _validate = true : _validate = false;
+                  }
+                  );
                 },
-
                 child: const Text('POTWIERDŹ'),
               ),
             ),
@@ -911,14 +910,16 @@ class _FormAndOpinionsState extends State<FormAndOpinions> {
               padding: const EdgeInsets.all(10.0),
               child:  ElevatedButton(
                 onPressed: () {
-                  // Respond to button press
+                 _text.clear();
+                 _rating=0;// Respond to button press
                 },
 
                 child: const Text('ANULUJ'),
               ),
             ),
           ]
-        )],
+        )
+          ],
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
