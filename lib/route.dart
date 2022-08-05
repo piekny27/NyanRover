@@ -5,6 +5,7 @@ import 'package:first_project/routes/dashboard_screen.dart';
 import 'package:first_project/routes/home_screen.dart';
 import 'package:first_project/components/notification_widget.dart';
 import 'package:first_project/components/rating_widget.dart';
+import 'package:first_project/components/trophies_widget.dart';
 
 
 MaterialApp mainRoute = MaterialApp(
@@ -17,5 +18,6 @@ MaterialApp mainRoute = MaterialApp(
     '/demo2': (context) => const RandomWords(),
     '/notifications': (context) => const Notifications(),
     '/rating': (context) => const FormAndOpinions(),
+    '/trophies': (context) => const Trophies(),
   },
 );

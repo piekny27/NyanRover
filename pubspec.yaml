@@ -57,6 +57,9 @@ flutter:
   assets:
   - assets/images/default_avatar.png
   - assets/images/background.jpg
+  - assets/images/32.png
+  - assets/images/44.png
+  - assets/JSON/notifications.json
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
