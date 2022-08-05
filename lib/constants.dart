@@ -25,7 +25,7 @@ static const h3 = TextStyle(
 }
 
 // ASSETS JSON
-const notesJSON = 'JSON/test.json';
+const notesJSON = 'assets/JSON/notifications.json';
 
 //ASSETS IMAGES
 const background1 = 'assets/images/background.jpg';

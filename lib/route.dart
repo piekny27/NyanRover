@@ -6,6 +6,7 @@ import 'package:first_project/routes/home_screen.dart';
 import 'package:first_project/components/notification_widget.dart';
 import 'package:first_project/components/rating_widget.dart';
 
+
 MaterialApp mainRoute = MaterialApp(
   title: 'Awesome first app',
   initialRoute: '/',

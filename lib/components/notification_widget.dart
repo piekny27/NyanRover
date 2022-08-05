@@ -166,15 +166,18 @@ class _MySearchDelegate extends SearchDelegate<List<Datum>> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          IconButton(
-                            icon: const FaIcon(FontAwesomeIcons.envelopeOpen),
-                            onPressed: () {
-                              setState(() {
-                                note.isRead.text = 'read';
-                                note.isRead.value = 1;
-                              });
-                            },
-                          ),
+                          (note.isRead.value == 0)
+                              ? IconButton(
+                                  icon: const FaIcon(
+                                      FontAwesomeIcons.envelopeOpen),
+                                  onPressed: () {
+                                    setState(() {
+                                      note.isRead.text = 'read';
+                                      note.isRead.value = 1;
+                                    });
+                                  },
+                                )
+                              : Container(),
                           const SizedBox(
                             width: 10,
                           ),
@@ -355,16 +358,18 @@ class _NotificationsState extends State<Notifications> {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              IconButton(
-                                icon:
-                                    const FaIcon(FontAwesomeIcons.envelopeOpen),
-                                onPressed: () {
-                                  setState(() {
-                                    note.isRead.text = 'read';
-                                    note.isRead.value = 1;
-                                  });
-                                },
-                              ),
+                              (note.isRead.value == 0)
+                                  ? IconButton(
+                                      icon: const FaIcon(
+                                          FontAwesomeIcons.envelopeOpen),
+                                      onPressed: () {
+                                        setState(() {
+                                          note.isRead.text = 'read';
+                                          note.isRead.value = 1;
+                                        });
+                                      },
+                                    )
+                                  : Container(),
                               const SizedBox(
                                 width: 10,
                               ),
@@ -394,7 +399,6 @@ class Notifications extends StatefulWidget {
   State<Notifications> createState() => _NotificationsState();
 }
 
-
 class NotificationData {
   NotificationData({
     required this.items,
@@ -402,14 +406,16 @@ class NotificationData {
 
   Items items;
 
-  factory NotificationData.fromJson(Map<String, dynamic> json) => NotificationData(
-    items: Items.fromJson(json["items"]),
-  );
+  factory NotificationData.fromJson(Map<String, dynamic> json) =>
+      NotificationData(
+        items: Items.fromJson(json["items"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "items": items.toJson(),
-  };
+        "items": items.toJson(),
+      };
 }
+
 class Items {
   Items({
     required this.columns,
@@ -422,17 +428,18 @@ class Items {
   Info info;
 
   factory Items.fromJson(Map<String, dynamic> json) => Items(
-    columns: Columns.fromJson(json["columns"]),
-    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    info: Info.fromJson(json["info"]),
-  );
+        columns: Columns.fromJson(json["columns"]),
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        info: Info.fromJson(json["info"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "columns": columns.toJson(),
-    "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    "info": info.toJson(),
-  };
+        "columns": columns.toJson(),
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "info": info.toJson(),
+      };
 }
+
 class Columns {
   Columns({
     required this.messageTitle,
@@ -453,25 +460,26 @@ class Columns {
   IsRead isRead;
 
   factory Columns.fromJson(Map<String, dynamic> json) => Columns(
-    messageTitle: IsRead.fromJson(json["Message.Title"]),
-    userLogin: IsRead.fromJson(json["User.Login"]),
-    userName: IsRead.fromJson(json["User.Name"]),
-    userSurname: IsRead.fromJson(json["User.Surname"]),
-    readtimestamp: IsRead.fromJson(json["readtimestamp"]),
-    sendtimestamp: IsRead.fromJson(json["sendtimestamp"]),
-    isRead: IsRead.fromJson(json["IsRead"]),
-  );
+        messageTitle: IsRead.fromJson(json["Message.Title"]),
+        userLogin: IsRead.fromJson(json["User.Login"]),
+        userName: IsRead.fromJson(json["User.Name"]),
+        userSurname: IsRead.fromJson(json["User.Surname"]),
+        readtimestamp: IsRead.fromJson(json["readtimestamp"]),
+        sendtimestamp: IsRead.fromJson(json["sendtimestamp"]),
+        isRead: IsRead.fromJson(json["IsRead"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "Message.Title": messageTitle.toJson(),
-    "User.Login": userLogin.toJson(),
-    "User.Name": userName.toJson(),
-    "User.Surname": userSurname.toJson(),
-    "readtimestamp": readtimestamp.toJson(),
-    "sendtimestamp": sendtimestamp.toJson(),
-    "IsRead": isRead.toJson(),
-  };
+        "Message.Title": messageTitle.toJson(),
+        "User.Login": userLogin.toJson(),
+        "User.Name": userName.toJson(),
+        "User.Surname": userSurname.toJson(),
+        "readtimestamp": readtimestamp.toJson(),
+        "sendtimestamp": sendtimestamp.toJson(),
+        "IsRead": isRead.toJson(),
+      };
 }
+
 class IsRead {
   IsRead({
     required this.name,
@@ -490,23 +498,24 @@ class IsRead {
   int index;
 
   factory IsRead.fromJson(Map<String, dynamic> json) => IsRead(
-    name: json["name"],
-    type: json["type"],
-    parsers: List<String>.from(json["parsers"].map((x) => x)),
-    sortable: json["sortable"],
-    show: json["show"],
-    index: json["index"],
-  );
+        name: json["name"],
+        type: json["type"],
+        parsers: List<String>.from(json["parsers"].map((x) => x)),
+        sortable: json["sortable"],
+        show: json["show"],
+        index: json["index"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "name": name,
-    "type": type,
-    "parsers": List<dynamic>.from(parsers.map((x) => x)),
-    "sortable": sortable,
-    "show": show,
-    "index": index,
-  };
+        "name": name,
+        "type": type,
+        "parsers": List<dynamic>.from(parsers.map((x) => x)),
+        "sortable": sortable,
+        "show": show,
+        "index": index,
+      };
 }
+
 class Datum {
   Datum({
     required this.messageTitle,
@@ -527,25 +536,26 @@ class Datum {
   DatumIsRead isRead;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-    messageTitle: MessageTitle.fromJson(json["Message.Title"]),
-    userLogin: json["User.Login"],
-    userName: json["User.Name"],
-    userSurname: json["User.Surname"],
-    readtimestamp: Dtimestamp.fromJson(json["readtimestamp"]),
-    sendtimestamp: Dtimestamp.fromJson(json["sendtimestamp"]),
-    isRead: DatumIsRead.fromJson(json["IsRead"]),
-  );
+        messageTitle: MessageTitle.fromJson(json["Message.Title"]),
+        userLogin: json["User.Login"],
+        userName: json["User.Name"],
+        userSurname: json["User.Surname"],
+        readtimestamp: Dtimestamp.fromJson(json["readtimestamp"]),
+        sendtimestamp: Dtimestamp.fromJson(json["sendtimestamp"]),
+        isRead: DatumIsRead.fromJson(json["IsRead"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "Message.Title": messageTitle.toJson(),
-    "User.Login": userLogin,
-    "User.Name": userName,
-    "User.Surname": userSurname,
-    "readtimestamp": readtimestamp.toJson(),
-    "sendtimestamp": sendtimestamp.toJson(),
-    "IsRead": isRead.toJson(),
-  };
+        "Message.Title": messageTitle.toJson(),
+        "User.Login": userLogin,
+        "User.Name": userName,
+        "User.Surname": userSurname,
+        "readtimestamp": readtimestamp.toJson(),
+        "sendtimestamp": sendtimestamp.toJson(),
+        "IsRead": isRead.toJson(),
+      };
 }
+
 class DatumIsRead {
   DatumIsRead({
     required this.text,
@@ -556,15 +566,16 @@ class DatumIsRead {
   int value;
 
   factory DatumIsRead.fromJson(Map<String, dynamic> json) => DatumIsRead(
-    text: json["text"],
-    value: json["value"],
-  );
+        text: json["text"],
+        value: json["value"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "text": text,
-    "value": value,
-  };
+        "text": text,
+        "value": value,
+      };
 }
+
 class MessageTitle {
   MessageTitle({
     required this.text,
@@ -575,15 +586,16 @@ class MessageTitle {
   String href;
 
   factory MessageTitle.fromJson(Map<String, dynamic> json) => MessageTitle(
-    text: json["text"],
-    href: json["href"],
-  );
+        text: json["text"],
+        href: json["href"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "text": text,
-    "href": href,
-  };
+        "text": text,
+        "href": href,
+      };
 }
+
 class Dtimestamp {
   Dtimestamp({
     required this.value,
@@ -600,21 +612,22 @@ class Dtimestamp {
   String emptyText;
 
   factory Dtimestamp.fromJson(Map<String, dynamic> json) => Dtimestamp(
-    value: json["value"],
-    showDifference: json["show_difference"],
-    showOriginDate: json["show_origin_date"],
-    showOnlyDate: json["show_only_date"],
-    emptyText: json["empty_text"],
-  );
+        value: json["value"],
+        showDifference: json["show_difference"],
+        showOriginDate: json["show_origin_date"],
+        showOnlyDate: json["show_only_date"],
+        emptyText: json["empty_text"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "value": value,
-    "show_difference": showDifference,
-    "show_origin_date": showOriginDate,
-    "show_only_date": showOnlyDate,
-    "empty_text": emptyText,
-  };
+        "value": value,
+        "show_difference": showDifference,
+        "show_origin_date": showOriginDate,
+        "show_only_date": showOnlyDate,
+        "empty_text": emptyText,
+      };
 }
+
 class Info {
   Info({
     required this.countAll,
@@ -625,12 +638,12 @@ class Info {
   int countFiltered;
 
   factory Info.fromJson(Map<String, dynamic> json) => Info(
-    countAll: json["count_all"],
-    countFiltered: json["count_filtered"],
-  );
+        countAll: json["count_all"],
+        countFiltered: json["count_filtered"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "count_all": countAll,
-    "count_filtered": countFiltered,
-  };
+        "count_all": countAll,
+        "count_filtered": countFiltered,
+      };
 }
