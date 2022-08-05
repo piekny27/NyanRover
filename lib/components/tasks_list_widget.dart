@@ -19,10 +19,10 @@ class _Task {
 
 const allTasks = [
   _Task(
-      name: 'Opinions',
+      name: 'Rating',
       assignees: 'Aleksander',
       icon: FontAwesomeIcons.spinner,
-      route: '/opinions',
+      route: '/rating',
       tooltip: 'In development'),
   _Task(
       name: 'Trophies',

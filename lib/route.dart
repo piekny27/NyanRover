@@ -4,6 +4,8 @@ import 'package:first_project/components/random_words_widget.dart';
 import 'package:first_project/routes/dashboard_screen.dart';
 import 'package:first_project/routes/home_screen.dart';
 import 'package:first_project/components/notification_widget.dart';
+import 'package:first_project/components/rating_widget.dart';
+
 
 MaterialApp mainRoute = MaterialApp(
   title: 'Awesome first app',
@@ -14,5 +16,6 @@ MaterialApp mainRoute = MaterialApp(
     '/demo1': (context) => const CoolCounter(),
     '/demo2': (context) => const RandomWords(),
     '/notifications': (context) => const Notifications(),
+    '/rating': (context) => const FormAndOpinions(),
   },
 );
