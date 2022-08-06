@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../utils/utils_timeAgo.dart';
+import '../utils/timeAgo.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import '../constants.dart';
