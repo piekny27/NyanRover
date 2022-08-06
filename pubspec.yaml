@@ -37,6 +37,9 @@ dependencies:
   english_words: ^4.0.0
   font_awesome_flutter: ^10.1.0
   google_fonts: ^3.0.1
+  firebase_core: ^1.20.0
+  flutter_dotenv: ^5.0.2
+  firebase_auth: ^3.6.2
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +63,7 @@ flutter:
   - assets/images/32.png
   - assets/images/44.png
   - assets/JSON/notifications.json
+  - assets/.env
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
